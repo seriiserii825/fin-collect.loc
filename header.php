@@ -1,58 +1,114 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package fin-collect
- */
-
-?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
-
-	<?php wp_head(); ?>
+    <title>Финколлект</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-favicon.png"/>
+    -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:600,400,300,400italic,600,700,700italic,800&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <?php wp_head(); ?>
 </head>
-
-<body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'fin-collect' ); ?></a>
-
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$fin_collect_description = get_bloginfo( 'description', 'display' );
-			if ( $fin_collect_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $fin_collect_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'fin-collect' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+<body>
+    <div class="main-wrapper">
+        <div class="header-wrapper">
+            <div class="container">
+                <div class="header relative">
+                    <div class="logo">
+                    	<?php 
+                    		$logo = get_custom_logo();
+                    		if($logo) echo $logo;
+                    	?>
+				       </div>
+                    <a href="#callback" class="button invert min callback-btn fancyboxModal hidden-xs hidden-sm">Обратный звонок</a>
+                    <div class="header-tel hidden-xs hidden-sm">
+                        <div>8 (800) 700-77-46</div>
+                        <small>Звонок по РФ бесплатный </small>
+                    </div>
+                    <div class="mob-menu-btn visible-xs visible-sm">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="dropdown text-center">
+                        <div class="dropdown-head">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="dropdown-tel">
+                                        <div>8 (800) 700-77-46</div>
+                                        <small>Звонок по РФ бесплатный </small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dropdown-callback">
+                                        <a href="#callback" class="button invert min callback-btn fancyboxModal">Обратный звонок</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-lk">
+                            <a href="#" class="lk-btn"><span></span> Личный кабинет</a>
+                        </div>
+                        <div class="mobile-menu">
+                            <ul>
+                                <li class="active"><a href="about.html">О компании</a></li>
+                                <li><a href="clients.html">Клиентам</a></li>
+                                <li><a href="partners.html">Партнерам</a></li>
+                                <li><a href="job.html">Карьера</a></li>
+                                <li><a href="contacts.html">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-menu-wrapper hidden-xs hidden-sm">
+            <div class="container">
+                <div class="relative">
+                    <div class="top-menu">
+                        <ul>
+                            <li><a href="index.html"><span>О компании</span></a>
+                                <ul>
+                                    <li><a href="#">Информация о компании</a></li>
+                                    <li><a href="#">Миссия</a></li>
+                                    <li><a href="#">Ценности</a></li>
+                                    <li><a href="#">Документы и правовая база</a></li>
+                                    <li><a href="#">Участие в ассоциациях</a></li>
+                                    <li><a href="news.html">Новости</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="clients.html"><span>Клиентам</span></a>
+                                <ul>
+                                    <li><a href="#">Способы погашения</a></li>
+                                    <li><a href="#">Сообщить о погашении</a></li>
+                                    <li><a href="#">Если у вас задолженность</a></li>
+                                    <li><a href="#">Советы и рекомендации</a></li>
+                                    <li><a href="#">Часто задаваемые вопросы</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="partners.html"><span>Партнерам</span></a>
+                                <ul>
+                                    <li><a href="#">Наши партнеры</a></li>
+                                    <li><a href="#">Тендеры</a></li>
+                                    <li><a href="#">Рекомендационные письма</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="job.html"><span>Карьера</span></a>
+                                <ul>
+                                    <li><a href="#">Почему стоит работать в «Финколлект»</a></li>
+                                    <li><a href="#">Вакансии</a></li>
+                                    <li><a href="#">Контакты менеджеров по персоналу</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contacts.html"><span>Контакты</span></a></li>
+                        </ul>
+                        <div class="cleaner"></div>
+                    </div>
+                    <a href="#" class="lk-btn">Личный кабинет</a>
+                </div>
+            </div>
+        </div>
