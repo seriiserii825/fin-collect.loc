@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Финколлект</title>
-    <meta charset="utf-8">
+<head <?php language_attributes('ru'); ?>>
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="SKYPE_TOOLBAR" content ="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -26,7 +25,7 @@
 				       </div>
                     <a href="#callback" class="button invert min callback-btn fancyboxModal hidden-xs hidden-sm">Обратный звонок</a>
                     <div class="header-tel hidden-xs hidden-sm">
-                        <div>8 (800) 700-77-46</div>
+                        <div><?php echo carbon_get_theme_option('crb_phone'); ?></div>
                         <small>Звонок по РФ бесплатный </small>
                     </div>
                     <div class="mob-menu-btn visible-xs visible-sm">
@@ -54,14 +53,15 @@
                             <a href="#" class="lk-btn"><span></span> Личный кабинет</a>
                         </div>
                         <div class="mobile-menu">
-                            <ul>
-                                <li class="active"><a href="about.html">О компании</a></li>
-                                <li><a href="clients.html">Клиентам</a></li>
-                                <li><a href="partners.html">Партнерам</a></li>
-                                <li><a href="job.html">Карьера</a></li>
-                                <li><a href="contacts.html">Контакты</a></li>
-                            </ul>
-                        </div>
+                        	<?php wp_nav_menu([
+	                    		'theme_location'  => 'mobile_menu_in_header',
+	                    		'menu'            => '',
+	                    		'container'       => false,
+	                    		'container_class'       => '',
+	                    		'menu_class'      => '',
+	                    		'menu_id'         => '',
+                        	]); ?>
+                       </div>
                     </div>
                 </div>
             </div>
@@ -70,42 +70,15 @@
             <div class="container">
                 <div class="relative">
                     <div class="top-menu">
-                        <ul>
-                            <li><a href="index.html"><span>О компании</span></a>
-                                <ul>
-                                    <li><a href="#">Информация о компании</a></li>
-                                    <li><a href="#">Миссия</a></li>
-                                    <li><a href="#">Ценности</a></li>
-                                    <li><a href="#">Документы и правовая база</a></li>
-                                    <li><a href="#">Участие в ассоциациях</a></li>
-                                    <li><a href="news.html">Новости</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="clients.html"><span>Клиентам</span></a>
-                                <ul>
-                                    <li><a href="#">Способы погашения</a></li>
-                                    <li><a href="#">Сообщить о погашении</a></li>
-                                    <li><a href="#">Если у вас задолженность</a></li>
-                                    <li><a href="#">Советы и рекомендации</a></li>
-                                    <li><a href="#">Часто задаваемые вопросы</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="partners.html"><span>Партнерам</span></a>
-                                <ul>
-                                    <li><a href="#">Наши партнеры</a></li>
-                                    <li><a href="#">Тендеры</a></li>
-                                    <li><a href="#">Рекомендационные письма</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="job.html"><span>Карьера</span></a>
-                                <ul>
-                                    <li><a href="#">Почему стоит работать в «Финколлект»</a></li>
-                                    <li><a href="#">Вакансии</a></li>
-                                    <li><a href="#">Контакты менеджеров по персоналу</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contacts.html"><span>Контакты</span></a></li>
-                        </ul>
+                    	<?php wp_nav_menu( array(
+                    		'theme_location'  => 'menu_in_header',
+                    		'menu'            => '',
+                    		'container'       => false,
+                    		'container_class'       => '',
+                    		'menu_class'      => '',
+                    		'menu_id'         => '',
+                    		'walker'          => new Header_Menu_Class(),
+                    	) ); ?>
                         <div class="cleaner"></div>
                     </div>
                     <a href="#" class="lk-btn">Личный кабинет</a>

@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/inc/theme-styles.php';
+require_once __DIR__ . '/inc/_carbon-fields.php';
+require_once __DIR__ . '/inc/header-menu-class.php';
 
 /**
  * fin-collect functions and definitions
@@ -46,7 +48,8 @@ if ( ! function_exists( 'fin_collect_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'fin-collect' ),
+			'menu_in_header' => esc_html__( 'header-menu', 'Меню в шапке' ),
+			'mobile_menu_in_header' => esc_html__( 'header-menu-mobile', 'Меню в шапке для мобильных устройств' ),
 		) );
 
 		/*
